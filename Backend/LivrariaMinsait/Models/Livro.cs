@@ -9,7 +9,7 @@ namespace LivrariaMinsait.Models
         [Key]
         [Column("id")]
         [Display(Name = "Código")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Column("Titulo")]
         [Display(Name = "Título")]
