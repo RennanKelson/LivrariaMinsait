@@ -7,22 +7,48 @@ namespace LivrariaMinsait.Models
     public class Livro
     {
         [Key]
-        [Required]
+        [Column("id")]
+        [Display(Name = "Código")]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Título não pode estar em branco")]
+
+        [Column("Titulo")]
+        [Display(Name = "Título")]
+        [Required, MaxLength(100)]
         public string Titulo { get; set; }
+
+        [Column("Subtitulo")]
+        [Display(Name = "Subtítulo")]
+        [MaxLength(100)]
         public string SubTitulo { get; set; }
+
+        [Column("Resumo")]
+        [Display(Name = "Resumo")]
+        [MaxLength(500)]
         public string Resumo { get; set; }
+
+        [Column("QtdePaginas")]
+        [Display(Name = "Número de páginas")]
+        [Required, Range(1, 10000)]
+        public int QtdePaginas { get; set; }
+
+        [Column("DataPublicacao")]
+        [Display(Name = "Data de publicação")]
         [Required]
-        [Range(1, 10000, ErrorMessage = "Quantidade de páginas deve ser maior que zero e menor que dez mil.")]
-        public int QuantidadeDePaginas { get; set; }
-        [Required(ErrorMessage = "Data não pode estar em branco")]
-        public string DataPublicacao { get; set; }
-        [Required(ErrorMessage = "Editora não pode estar em branco")]
+        public DateTime DataPublicacao { get; set; }
+
+        [Column("Editora")]
+        [Display(Name = "Editora")]
+        [Required, MaxLength(150)]
         public string Editora { get; set; }
-        [Range(1, 99, ErrorMessage = "Quantidade de páginas deve ser maior que zero.")]
+
+        [Column("Edicao")]
+        [Display(Name = "Edição")]
+        [MaxLength(2), Range(1, 99)]
         public int Edicao { get; set; }
-        [Required(ErrorMessage = "Autor não pode estar em branco")]
-        public string? Autor { get; set; }
+
+        [Column("Autor")]
+        [Display(Name = "Autor")]
+        [Required, MaxLength(50)]
+        public string Autor { get; set; }
     }
 }

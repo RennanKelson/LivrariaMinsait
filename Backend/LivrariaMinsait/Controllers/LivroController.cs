@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LivrariaMinsait.Context;
 using LivrariaMinsait.Models;
-using LivrariaMinsait.Data.DTOs;
 
 namespace LivrariaMinsait.Controllers
 {
@@ -55,7 +54,7 @@ namespace LivrariaMinsait.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,SubTitulo,Resumo,QuantidadeDePaginas,DataPublicacao,Editora,Edicao,Autor")] Livro livro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,SubTitulo,Resumo,QtdePaginas,DataPublicacao,Editora,Edicao,Autor,QtdeEstoque")] Livro livro)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +86,7 @@ namespace LivrariaMinsait.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,SubTitulo,Resumo,QuantidadeDePaginas,DataPublicacao,Editora,Edicao,Autor")] Livro livro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,SubTitulo,Resumo,QtdePaginas,DataPublicacao,Editora,Edicao,Autor,QtdeEstoque")] Livro livro)
         {
             if (id != livro.Id)
             {

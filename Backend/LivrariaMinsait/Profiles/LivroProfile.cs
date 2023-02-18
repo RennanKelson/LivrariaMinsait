@@ -9,7 +9,6 @@ namespace LivrariaMinsait.Profiles
         public LivroProfile()
         {
             CreateMap<LivroRequestDTO, Livro>();
-            CreateMap<PesquisarLivroDTO, Livro>();
             CreateMap<Livro, LivroResponseDTO>();
         }
     }

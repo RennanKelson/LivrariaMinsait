@@ -299,8 +299,6 @@ C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\De
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\Debug\net6.0\LivrariaMinsait.pdb
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\Debug\net6.0\LivrariaMinsait.genruntimeconfig.cache
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\Debug\net6.0\ref\LivrariaMinsait.dll
-C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\Debug\net6.0\LivrariaMinsait.RazorAssemblyInfo.cache
-C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\obj\Debug\net6.0\LivrariaMinsait.RazorAssemblyInfo.cs
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\renna\OneDrive\Área de Trabalho\Desafio\Backend\LivrariaMinsait\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
