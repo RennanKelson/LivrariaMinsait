@@ -26,53 +26,38 @@ namespace LivrariaMinsait.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
+                        .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Autor")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)")
-                        .HasColumnName("Autor");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("DataPublicacao")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("DataPublicacao");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Edicao")
-                        .HasMaxLength(2)
-                        .HasColumnType("integer")
-                        .HasColumnName("Edicao");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Editora")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)")
-                        .HasColumnName("Editora");
+                        .HasColumnType("text");
 
                     b.Property<int>("QtdePaginas")
-                        .HasColumnType("integer")
-                        .HasColumnName("QtdePaginas");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Resumo")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)")
-                        .HasColumnName("Resumo");
+                        .HasColumnType("text");
 
                     b.Property<string>("SubTitulo")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("Subtitulo");
+                        .HasColumnType("text");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("Titulo");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

@@ -16,20 +16,20 @@ namespace LivrariaMinsait.Migrations
                 name: "Livro",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Titulo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Subtitulo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Resumo = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Titulo = table.Column<string>(type: "text", nullable: false),
+                    SubTitulo = table.Column<string>(type: "text", nullable: false),
+                    Resumo = table.Column<string>(type: "text", nullable: false),
                     QtdePaginas = table.Column<int>(type: "integer", nullable: false),
                     DataPublicacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Editora = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
-                    Edicao = table.Column<int>(type: "integer", maxLength: 2, nullable: false),
-                    Autor = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
+                    Editora = table.Column<string>(type: "text", nullable: false),
+                    Edicao = table.Column<int>(type: "integer", nullable: false),
+                    Autor = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Livro", x => x.id);
+                    table.PrimaryKey("PK_Livro", x => x.Id);
                 });
         }
 

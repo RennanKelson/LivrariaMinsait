@@ -1,4 +1,5 @@
 using LivrariaMinsait.Context;
+using LivrariaMinsait.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<LivroContext>(options => 
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<LivroContext>(options =>
     options.UseNpgsql("Host=localhost;Port=5432;Pooling=true;Database=livraria-minsait-db;User Id=postgres;Password=1234;"));
-
+builder.Services.AddScoped<ILivroRepository, LivroRepository>();
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
