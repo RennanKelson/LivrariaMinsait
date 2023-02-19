@@ -6,6 +6,18 @@ namespace LivrariaMinsait.Models
     [Table("Livro")]
     public class Livro
     {
+        public Livro (string titulo, string? subTitulo, string? resumo, int qtdePaginas, DateTime dataPublicacao, string editora, int edicao, string autor)
+        {
+            Titulo=titulo;
+            SubTitulo=subTitulo;
+            Resumo=resumo;
+            QtdePaginas=qtdePaginas;
+            DataPublicacao=dataPublicacao;
+            Editora=editora;
+            Edicao=edicao;
+            Autor=autor;
+        }
+
         [Key]
         public int Id { get; set; }
 

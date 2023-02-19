@@ -1,4 +1,5 @@
-﻿using LivrariaMinsait.Models;
+﻿using LivrariaMinsait.Data.DTO;
+using LivrariaMinsait.Models;
 
 namespace LivrariaMinsait.Repositories
 {
@@ -7,7 +8,7 @@ namespace LivrariaMinsait.Repositories
         Task<IEnumerable<Livro>> ListarTodos();
         Task<Livro> ListarPorID(int Id);
         Task<Livro> Inserir(Livro livro);
-        Task Atualizar(Livro livro);
+        Task Atualizar(int id, LivroRequestDTO livro);
         Task Deletar(int Id);
     }
 }

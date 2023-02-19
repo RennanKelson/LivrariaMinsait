@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using LivrariaMinsait.Data.DTO;
 using LivrariaMinsait.Models;
 using LivrariaMinsait.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -18,43 +19,71 @@ namespace LivrariaMinsait.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Livro>> ListarTodos()
+        public async Task<IEnumerable<LivroResponseDTO>> ListarTodos()
         {
-            return await _livroRepository.ListarTodos();
+            try
+            {
+                var listarLivros = await _livroRepository.ListarTodos();
+                var listaLivroRetorno = new List<LivroResponseDTO>();
+                foreach (var livro in listarLivros)
+                {
+                    var livroRetorno = new LivroResponseDTO
+                        (livro.Id, livro.Titulo, livro.SubTitulo, livro.Resumo, livro.QtdePaginas, livro.DataPublicacao, livro.Editora, livro.Edicao, livro.Autor);
+                    listaLivroRetorno.Add(livroRetorno);
+                }
+                return listaLivroRetorno;
+            }
+            catch (Exception)
+            {
+                return Enumerable.Empty<LivroResponseDTO>();
+            }
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Livro>> ListarPorID(int id)
+        public async Task<ActionResult<LivroResponseDTO>> ListarPorID(int id)
         {
-            return await _livroRepository.ListarPorID(id);
+            var livroSalvo = await _livroRepository.ListarPorID(id);
+            var livroRetorno = new LivroResponseDTO
+                (livroSalvo.Id, livroSalvo.Titulo, livroSalvo.SubTitulo, livroSalvo.Resumo, livroSalvo.QtdePaginas, livroSalvo.DataPublicacao, livroSalvo.Editora, livroSalvo.Edicao, livroSalvo.Autor);
+            return livroRetorno;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Livro>> InserirLivro([FromBody] Livro livro)
+        public async Task<ActionResult<LivroResponseDTO>> InserirLivro([FromBody] LivroRequestDTO livro)
         {
-            var novoLivro = await _livroRepository.Inserir(livro);
-            return CreatedAtAction(nameof(ListarTodos), new { id = novoLivro.Id }, novoLivro);
+            if (livro == null)
+            { 
+                return BadRequest();
+            }
+            try
+            {
+                var novoLivro = new Livro
+                    (livro.Titulo, livro.SubTitulo, livro.Resumo, livro.QtdePaginas, livro.DataPublicacao, livro.Editora, livro.Edicao, livro.Autor);
+                var livroSalvo = await _livroRepository.Inserir(novoLivro);
+
+                var livroRetorno = new LivroResponseDTO
+                    (livroSalvo.Id, livroSalvo.Titulo, livroSalvo.SubTitulo, livroSalvo.Resumo, livroSalvo.QtdePaginas, livroSalvo.DataPublicacao, livroSalvo.Editora, livroSalvo.Edicao, livroSalvo.Autor);
+                return livroRetorno;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Algum campo está inválido por favor revise");
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             var livroDelete = await _livroRepository.ListarPorID(id);
-            if (livroDelete == null)
-                return NotFound();
 
             await _livroRepository.Deletar(livroDelete.Id);
             return NoContent();
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutLivros(int id, [FromBody] Livro livro)
+        public async Task<ActionResult> PutLivros(int id, [FromBody] LivroRequestDTO livro)
         {
-            if (id != livro.Id)
-                return BadRequest();
-
-            await _livroRepository.Atualizar(livro);
-
+            await _livroRepository.Atualizar(id, livro);
             return NoContent();
         }
 

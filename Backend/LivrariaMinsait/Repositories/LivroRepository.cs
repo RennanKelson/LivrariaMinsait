@@ -1,5 +1,7 @@
 ﻿using LivrariaMinsait.Context;
+using LivrariaMinsait.Data.DTO;
 using LivrariaMinsait.Models;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.EntityFrameworkCore;
 
 namespace LivrariaMinsait.Repositories
@@ -46,10 +48,28 @@ namespace LivrariaMinsait.Repositories
             return procurarLivro;
         }
 
-        public async Task Atualizar(Livro livro)
+        public async Task Atualizar(int id, LivroRequestDTO livro)
         {
-            _context.Entry(livro).State = EntityState.Modified;
+            if (id == null)
+            {
+                throw new Exception("Id não pode ser nulo");
+            }
+            var procurarLivro = await _context.Livros.FindAsync(id);
+            if (id == null)
+            {
+                throw new Exception($"Livro não encontrado para este Id: {id}");
+            }
+            procurarLivro.Titulo = livro.Titulo;
+            procurarLivro.SubTitulo = livro.SubTitulo;
+            procurarLivro.Resumo = livro.Resumo;
+            procurarLivro.QtdePaginas = livro.QtdePaginas;
+            procurarLivro.DataPublicacao = livro.DataPublicacao;
+            procurarLivro.Editora = livro.Editora;
+            procurarLivro.Edicao = livro.Edicao;
+            procurarLivro.Autor = livro.Autor;
+            _context.Entry(procurarLivro).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
     }
 }
+
