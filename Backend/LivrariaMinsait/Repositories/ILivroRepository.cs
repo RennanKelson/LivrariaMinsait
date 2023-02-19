@@ -4,10 +4,10 @@ namespace LivrariaMinsait.Repositories
 {
     public interface ILivroRepository
     {
-        Task<IEnumerable<Livro>> Get();
-        Task<Livro> Get(int Id);
-        Task<Livro> Create(Livro livro);
-        Task Update(Livro livro);
-        Task Delete(int Id);
+        Task<IEnumerable<Livro>> ListarTodos();
+        Task<Livro> ListarPorID(int Id);
+        Task<Livro> Inserir(Livro livro);
+        Task Atualizar(Livro livro);
+        Task Deletar(int Id);
     }
 }

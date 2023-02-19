@@ -1,7 +1,9 @@
-﻿using LivrariaMinsait.Models;
+﻿using Azure.Core;
+using LivrariaMinsait.Models;
 using LivrariaMinsait.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 
 namespace LivrariaMinsait.Controllers
 {
@@ -16,32 +18,32 @@ namespace LivrariaMinsait.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Livro>> GetLivro()
+        public async Task<IEnumerable<Livro>> ListarTodos()
         {
-            return await _livroRepository.Get();
+            return await _livroRepository.ListarTodos();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Livro>> GetLivro(int id)
+        public async Task<ActionResult<Livro>> ListarPorID(int id)
         {
-            return await _livroRepository.Get(id);
+            return await _livroRepository.ListarPorID(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Livro>> PostLivros([FromBody] Livro livro)
+        public async Task<ActionResult<Livro>> InserirLivro([FromBody] Livro livro)
         {
-            var newLivro = await _livroRepository.Create(livro);
-            return CreatedAtAction(nameof(GetLivro), new { id = newLivro.Id }, newLivro);
+            var novoLivro = await _livroRepository.Inserir(livro);
+            return CreatedAtAction(nameof(ListarTodos), new { id = novoLivro.Id }, novoLivro);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var livroDelete = await _livroRepository.Get(id);
+            var livroDelete = await _livroRepository.ListarPorID(id);
             if (livroDelete == null)
                 return NotFound();
 
-            await _livroRepository.Delete(livroDelete.Id);
+            await _livroRepository.Deletar(livroDelete.Id);
             return NoContent();
         }
 
@@ -51,9 +53,10 @@ namespace LivrariaMinsait.Controllers
             if (id != livro.Id)
                 return BadRequest();
 
-            await _livroRepository.Update(livro);
+            await _livroRepository.Atualizar(livro);
 
             return NoContent();
         }
+
     }
 }

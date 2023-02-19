@@ -6,6 +6,7 @@ namespace LivrariaMinsait.Models
     [Table("Livro")]
     public class Livro
     {
+        [Key]
         public int Id { get; set; }
 
         public string Titulo { get; set; }
