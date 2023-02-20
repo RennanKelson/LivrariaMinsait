@@ -24,4 +24,10 @@ export class LivrosComponent implements OnInit {
       console.log ('Erro ao listar os livros', erro)
     })
   }
+
+  excluirLivro (id : number) {
+    console.log(id);
+    this.livrosService.removerLivros(id);
+    this.listarLivros();
+  }
 }

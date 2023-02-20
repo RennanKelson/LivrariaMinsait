@@ -4,13 +4,15 @@ import { EditarComponent } from './editar/editar.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LivrosRoutingRoutes } from './livros-routing.routing';
 import { FormsModule } from '@angular/forms';
+import { BuscarComponent } from './buscar/buscar.component';
 
 
 
 @NgModule({
   declarations: [
     EditarComponent,
-    CadastroComponent
+    CadastroComponent,
+    BuscarComponent
   ],
   imports: [
     CommonModule,
