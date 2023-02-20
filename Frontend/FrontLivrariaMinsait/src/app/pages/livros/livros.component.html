@@ -1,1 +1,34 @@
-<p>livros works!</p>
+<div class= "container mt-4">
+  <h3>Livros Cadastrados:</h3>
+  <table class= "table table-striped table-hover mt-4">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Título</th>
+      <th>Subtítulo</th>
+      <th>Resumo</th>
+      <th>Páginas</th>
+      <th>Data Pulicação</th>
+      <th>Editora</th>
+      <th>Edição</th>
+      <th>Autor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let livro of livros'>
+      <th>{{livro.id}}</th>
+      <th>{{livro.titulo}}</th>
+      <th>{{livro.subtitulo}}</th>
+      <th>{{livro.resumo}}</th>
+      <th>{{livro.qtdePaginas}}</th>
+      <th>{{livro.dataPublicacao}}</th>
+      <th>{{livro.editora}}</th>
+      <th>{{livro.edicao}}</th>
+      <th>{{livro.autor}}</th>
+    </tr>
+  </tbody>
+  </table>
+  <div class="acao">
+    <a class="btn btn-primary mt-4" routerLink="cadastro">+ Novo Livro</a>
+  </div>
+</div>
