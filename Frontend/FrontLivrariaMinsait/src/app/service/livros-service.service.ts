@@ -27,8 +27,8 @@ export class LivrosService {
     return this.http.delete(`${this.urlApi}/${id}`).subscribe((result)=> {
       console.log(result)
     });
-    
   }
+  
   cadastroLivros(livro : ILivroModel) {
     return this.http.post(this.urlApi, livro)
   }
