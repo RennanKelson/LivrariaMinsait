@@ -14,7 +14,7 @@ namespace LivrariaMinsait.Data.DTO
         [Required(ErrorMessage = "O campo Quantidade de Páginas é obrigatorio!")]
         public int QtdePaginas { get; set; }
         [Required(ErrorMessage = "O campo Data de Publicação é obrigatorio!")]
-        public DateTime DataPublicacao { get; set; }
+        public string DataPublicacao { get; set; }
         [Required(ErrorMessage = "O campo Editora é obrigatorio!"), MaxLength(150)]
         public string Editora { get; set; }
         [Range(1, 20, ErrorMessage = "Quantidade máxima para Edição é 20.")]

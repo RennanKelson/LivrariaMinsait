@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/ZppjdSL8pQ7ldegZyDuoRMeWyr0RJ3R16CaKJ0vKsg7w99iGjyWDREYA9ioWQXSPb0+olB3g2Ib4DSlZNsYFw==",
+  "dgSpecHash": "URL2xOLlXK/sBNhy3aEFUecWTXxtgZ7UrrbRR2blRUZv95O+IISSPtVRBD8unUTLIcqS+GF9KAd/BlzU89Irzg==",
   "success": true,
   "projectFilePath": "C:\\Users\\renna\\OneDrive\\Área de Trabalho\\Desafio\\Backend\\LivrariaMinsait\\LivrariaMinsait.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\renna\\.nuget\\packages\\microsoft.odata.edm\\7.14.1\\microsoft.odata.edm.7.14.1.nupkg.sha512",
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\renna\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",

@@ -62,6 +62,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.OData.Edm": {
+              "target": "Package",
+              "version": "[7.14.1, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.12, )"

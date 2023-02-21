@@ -9,13 +9,13 @@ const routes: Routes = [
     component: LivrosComponent
   },
   { path: 'cadastro',
-  component: CadastroComponent
+    component: CadastroComponent
   },
   { path: 'editar/:id',
-  component: EditarComponent
+    component: EditarComponent
   },
   { path: 'buscar',
-  component: BuscarComponent
+    component: BuscarComponent
   },
 ];
 

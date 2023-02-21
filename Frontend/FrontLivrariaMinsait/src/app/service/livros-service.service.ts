@@ -3,6 +3,7 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ILivroModelCadastro } from '../shared/model/livro-cadastro.model';
 
 
 
@@ -28,8 +29,8 @@ export class LivrosService {
       console.log(result)
     });
   }
-  
-  cadastroLivros(livro : ILivroModel) {
+
+  cadastroLivros(livro : ILivroModelCadastro) {
     return this.http.post(this.urlApi, livro)
   }
 

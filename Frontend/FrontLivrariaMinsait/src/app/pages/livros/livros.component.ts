@@ -28,6 +28,7 @@ export class LivrosComponent implements OnInit {
   excluirLivro (id : number) {
     console.log(id);
     this.livrosService.removerLivros(id);
+    alert("Livro excluído com sucesso");
     this.listarLivros();
   }
 }

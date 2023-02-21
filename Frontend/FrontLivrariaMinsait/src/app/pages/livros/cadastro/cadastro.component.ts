@@ -1,3 +1,4 @@
+import { ILivroModelCadastro } from './../../../shared/model/livro-cadastro.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LivrosService } from 'src/app/service/livros-service.service';
@@ -13,21 +14,21 @@ import { ILivroModel } from 'src/app/shared/model/livro.model';
 export class CadastroComponent implements OnInit {
 
   formCadastro: FormGroup;
-  
+
 
   constructor(
     private cadastroService : LivrosService,
     private fb: FormBuilder,
     private router: Router) {
       this.formCadastro = this.fb.group ({
-        titulo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        subTitulo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        resumo: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        qtdePaginas: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        dataPublicacao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        editora: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        edicao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-        autor: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+        titulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        subTitulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        resumo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        qtdePaginas: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        dataPublicacao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        editora: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        edicao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        autor: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]]
       })
    }
 
@@ -35,16 +36,13 @@ export class CadastroComponent implements OnInit {
   }
 
   novoCadastro () {
-    if (this.formCadastro.valid){
-      this.cadastroService.
-      cadastroLivros (this.formCadastro.value).
-      subscribe(() => {
-        this.router.navigate([""]);
-      }, erro => {
-        alert("Não foi possível realizar o cadastro, tente novamente");});
-    } else {
-      alert ("Preencha os campos obrigatórios!");
-    }
+    const livro: ILivroModelCadastro = this.formCadastro.value;
+    console.log(livro);
+    this.cadastroService.cadastroLivros (livro).subscribe(()=> {this.router.navigate([""]);
+    alert("Cadastro realizado com sucesso")},
+    erro => {
+      alert ("não foi possível realizar o cadastro");
+      console.log(erro);
+    });
   }
-
 }

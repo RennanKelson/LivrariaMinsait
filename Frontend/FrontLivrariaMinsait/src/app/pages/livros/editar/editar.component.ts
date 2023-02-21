@@ -20,14 +20,14 @@ export class EditarComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
       this.formEdit = this.fb.group ({
-        titulo: [null],
-        subTitulo: [null],
-        resumo: [null],
-        qtdePaginas: [null],
-        dataPublicacao: [null],
-        editora: [null],
-        edicao: [null],
-        autor: [null]
+        titulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        subTitulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        resumo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        qtdePaginas: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        dataPublicacao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        editora: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        edicao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+        autor: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]]
       })
    }
 
@@ -45,6 +45,7 @@ export class EditarComponent implements OnInit {
       this.livrosService.editarLivros(Number(this.activatedRoute.snapshot.paramMap.get('id')),
         this.formEdit.value).subscribe(() => {
         this.router.navigate([""]);
+        alert ("Edição feita com sucesso")
       }, erro => {
         alert ("Não foi possível editar o livro!")});
     }

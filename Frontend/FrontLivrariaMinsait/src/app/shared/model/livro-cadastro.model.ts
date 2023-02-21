@@ -1,5 +1,4 @@
-export interface ILivroModel {
-  id: number,
+export interface ILivroModelCadastro {
   titulo: string,
   subTitulo: string,
   resumo: string,

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -22,7 +21,7 @@ namespace LivrariaMinsait.Migrations
                     SubTitulo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Resumo = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     QtdePaginas = table.Column<int>(type: "integer", nullable: false),
-                    DataPublicacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DataPublicacao = table.Column<string>(type: "text", nullable: false),
                     Editora = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     Edicao = table.Column<int>(type: "integer", nullable: false),
                     Autor = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)

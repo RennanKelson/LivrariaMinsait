@@ -6,7 +6,7 @@ namespace LivrariaMinsait.Models
     [Table("Livro")]
     public class Livro
     {
-        public Livro(string titulo, string? subTitulo, string? resumo, int qtdePaginas, DateTime dataPublicacao, string editora, int edicao, string autor)
+        public Livro(string titulo, string? subTitulo, string? resumo, int qtdePaginas, string dataPublicacao, string editora, int edicao, string autor)
         {
             Titulo=titulo;
             SubTitulo=subTitulo;
@@ -30,7 +30,7 @@ namespace LivrariaMinsait.Models
         [Required(ErrorMessage = "O campo Quantidade de Páginas é obrigatorio!")]
         public int QtdePaginas { get; set; }
         [Required(ErrorMessage = "O campo Data de Publicação é obrigatorio!")]
-        public DateTime DataPublicacao { get; set; }
+        public string DataPublicacao { get; set; }
         [Required(ErrorMessage = "O campo Editora é obrigatorio!"), MaxLength(150)]
         public string Editora { get; set; }
         [Range(1, 20, ErrorMessage = "Quantidade máxima para Edição é 20.")]
