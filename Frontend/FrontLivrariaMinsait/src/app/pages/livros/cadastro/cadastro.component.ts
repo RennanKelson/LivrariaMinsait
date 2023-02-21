@@ -23,12 +23,12 @@ export class CadastroComponent implements OnInit {
       this.formCadastro = this.fb.group ({
         titulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
         subTitulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        resumo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        qtdePaginas: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        dataPublicacao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        editora: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        edicao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        autor: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]]
+        resumo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(500)]],
+        qtdePaginas: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(10000)]],
+        dataPublicacao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
+        editora: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(150)]],
+        edicao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+        autor: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]]
       })
    }
 

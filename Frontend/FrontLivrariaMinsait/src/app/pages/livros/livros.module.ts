@@ -7,8 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BuscarComponent } from './buscar/buscar.component';
 
 
-
-
 @NgModule({
   declarations: [
     EditarComponent,
