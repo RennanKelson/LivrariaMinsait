@@ -5,17 +5,17 @@
 
     <div class="form-group mt-4">
       <label for="titulo">Digite o Código do Livro</label>
-      <input type="text" class="form-control" name="titulo" id="titulo">
+      <input type="text" class="form-control" name="titulo" id="titulo" #id>
     </div>
 
     <div class="acoes">
-      <input type="submit" class="btn btn-primary mt-4 pl-2" value="Buscar">
+      <button class="btn btn-primary mt-4 pl-2" (click)="buscarLivroID()">Buscar</button>
       <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
     </div>
   </div>
 </form>
 
-<div class= "container mt-4">
+<div class= "container mt-4" *ngIf="livroID">
   <h4>Resultado da Busca:</h4>
   <table class= "table table-striped table-hover mt-1">
   <thead>
@@ -31,6 +31,19 @@
       <th>Autor</th>
     </tr>
   </thead>
+  <tbody>
+    <tr>
+      <th>{{livroID.id}}</th>
+      <th>{{livroID.titulo}}</th>
+      <th>{{livroID.subTitulo}}</th>
+      <th>{{livroID.resumo}}</th>
+      <th>{{livroID.qtdePaginas}}</th>
+      <th>{{livroID.dataPublicacao}}</th>
+      <th>{{livroID.editora}}</th>
+      <th>{{livroID.edicao}}</th>
+      <th>{{livroID.autor}}</th>
+    </tr>
+  </tbody>
 
   </table>
   <div class="acoes">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LivrosService } from 'src/app/service/livros-service.service';
 import { ILivroModel } from 'src/app/shared/model/livro.model';
 
@@ -12,9 +12,16 @@ export class BuscarComponent implements OnInit {
 
   livroID!: ILivroModel;
 
+  @ViewChild('id')
+  id!: ElementRef;
+
   constructor(private livrosService: LivrosService) { }
 
   ngOnInit() {
+  }
+
+  buscarLivroID () {
+    this.listarLivrosId(this.id.nativeElement.value);
   }
 
   listarLivrosId (id : number) {
