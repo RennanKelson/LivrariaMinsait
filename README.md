@@ -5,7 +5,7 @@ O sistema apresenta uma funcionalidade de CRUD (Create, Read, Update e Delete), 
 
 O projeto foi desenvolvido utilizando a arquitetura cliente-servidor, com a parte de frontend construída em Angular e a parte de backend em .NET. Além disso, para a implementação deste sistema de gerenciamento de livros, foi necessário criar um banco de dados para armazenar as informações dos livros. Para isso, foi utilizado o PostgreSQL. Foi necessário também a validação de entrada e checagem de integridade de dados.
 
-### 📋 Pré-requisitos
+## 📋 Pré-requisitos
 
 Para executar este projeto em sua máquina, é necessário instalar o .Net, o Visual Studio e o Visual Studio Code, além do Node.js para o Angular e o Git. Também será necessário ter o PostgreSQL instalado para fazer a conexão com o banco de dados.
 
@@ -36,3 +36,21 @@ Dependendo do ambiente de desenvolvimento e das configurações do seu computado
 ## 📌 Por fim
 
 Em conclusão, o sistema de gerenciamento de livros desenvolvido para atender aos requisitos do desafio proposto é uma solução bastante intuitiva e prática para o gerenciamento de estoques de livros. Com uma interface intuitiva e botões autoexplicativos, o sistema permite o cadastro, atualização e exclusão de livros de forma fácil e rápida, além de permitir ao usuário a visualização dos livros cadastrados.
+
+## 📸 Visuais e Telas 
+
+1- Tela de Listagem de Livros: apresenta uma lista dos livros cadastrados no sistema.
+
+![lista de livros](https://user-images.githubusercontent.com/96076786/220774904-28821f73-5c53-4195-a681-125576c289bc.JPG)
+
+2- Tela de Cadastro de Livros: permite cadastrar novos livros no sistema.
+
+![cadastro](https://user-images.githubusercontent.com/96076786/220775239-6a982c95-6b3b-457a-af43-9eb8028cb977.JPG)
+
+3- Tela de Edição de Livros: permite editar as informações de um livro já cadastrado.
+
+![editar](https://user-images.githubusercontent.com/96076786/220775281-55e4f484-b835-4cde-ad0a-077145259808.JPG)
+
+4- Tela de Busca de Livros: permite buscar livros específicos no sistema, informando o código do livro.
+
+![buscar por id](https://user-images.githubusercontent.com/96076786/220775359-67525106-8f81-4508-af48-c94cfd06239c.JPG)
