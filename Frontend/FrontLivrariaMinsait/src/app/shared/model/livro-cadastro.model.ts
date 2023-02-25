@@ -3,7 +3,7 @@ export interface ILivroModelCadastro {
   subTitulo: string,
   resumo: string,
   qtdePaginas: number,
-  dataPublicacao: string,
+  dataPublicacao: Date,
   editora: string,
   edicao: number,
   autor: string

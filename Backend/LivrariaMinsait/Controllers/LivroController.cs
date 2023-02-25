@@ -58,7 +58,7 @@ namespace LivrariaMinsait.Controllers
             try
             {
                 var novoLivro = new Livro
-                    (livro.Titulo, livro.SubTitulo, livro.Resumo, livro.QtdePaginas, livro.DataPublicacao, livro.Editora, livro.Edicao, livro.Autor);
+                    (livro.Titulo, livro.SubTitulo, livro.Resumo, livro.QtdePaginas, livro.DataPublicacao.ToString("yyyy-MM-dd"), livro.Editora, livro.Edicao, livro.Autor);
                 var livroSalvo = await _livroRepository.Inserir(novoLivro);
 
                 var livroRetorno = new LivroResponseDTO

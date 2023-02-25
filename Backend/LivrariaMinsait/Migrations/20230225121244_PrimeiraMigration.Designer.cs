@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LivrariaMinsait.Migrations
 {
     [DbContext(typeof(LivroContext))]
-    [Migration("20230221182451_PrimeiraMigration")]
+    [Migration("20230225121244_PrimeiraMigration")]
     partial class PrimeiraMigration
     {
         /// <inheritdoc />

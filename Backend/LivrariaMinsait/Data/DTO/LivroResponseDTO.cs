@@ -36,5 +36,6 @@ namespace LivrariaMinsait.Data.DTO
         public int Edicao { get; set; }
         [Required(ErrorMessage = "O campo Autor é obrigatorio!"), MaxLength(50)]
         public string Autor { get; set; }
+
     }
 }

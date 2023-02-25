@@ -63,7 +63,7 @@ namespace LivrariaMinsait.Repositories
             procurarLivro.SubTitulo = livro.SubTitulo;
             procurarLivro.Resumo = livro.Resumo;
             procurarLivro.QtdePaginas = livro.QtdePaginas;
-            procurarLivro.DataPublicacao = livro.DataPublicacao;
+            procurarLivro.DataPublicacao = livro.DataPublicacao.ToString("yyyy-MM-dd");
             procurarLivro.Editora = livro.Editora;
             procurarLivro.Edicao = livro.Edicao;
             procurarLivro.Autor = livro.Autor;
