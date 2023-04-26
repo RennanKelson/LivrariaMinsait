@@ -10,12 +10,12 @@
 
     <div class="form-group">
       <label for="subTitulo">Subtítulo</label>
-      <input type="text" class="form-control" name="subTitulo" id="subTitulo" required formControlName="subTitulo">
+      <input type="text" class="form-control" name="subTitulo" id="subTitulo" formControlName="subTitulo">
     </div>
 
     <div class="form-group">
       <label for="resumo">Resumo</label>
-      <input type="text" class="form-control" name="resumo" id="resumo" required formControlName="resumo">
+      <input type="text" class="form-control" name="resumo" id="resumo" formControlName="resumo">
     </div>
 
     <div class="form-group">
@@ -35,7 +35,7 @@
 
     <div class="form-group">
       <label for="edicao">Edição</label>
-      <input type="number" class="form-control" name="edicao" id="edicao" required formControlName="edicao">
+      <input type="number" class="form-control" name="edicao" id="edicao" formControlName="edicao">
     </div>
 
     <div class="form-group">
@@ -43,8 +43,18 @@
       <input type="text" class="form-control" name="autor" id="autor" required formControlName="autor">
     </div>
 
+    <div formArrayName="autor">
+      <div *ngFor=" let i=index">
+        <div class="form-group">
+          <label for="autor{{i}}">Autor {{i+1}}*</label>
+          <input type="text" class="form-control" name="autor{{i}}" id="autor{{i}}" required formControlName="{{i}}.nome">
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary mt-4 pl-2" (click)="adicionarAutor()">Adicionar Autor</button>
+    </div>
+
     <div class="acoes">
-      <button [disabled]="formCadastro.invalid" type="submit" class="btn btn-primary mt-4 pl-2" >Salvar</button>
+      <button  type="submit" class="btn btn-primary mt-4 pl-2" >Salvar</button>
       <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
     </div>
   </div>

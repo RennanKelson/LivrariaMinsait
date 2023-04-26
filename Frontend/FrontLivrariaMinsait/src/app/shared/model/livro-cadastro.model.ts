@@ -6,5 +6,5 @@ export interface ILivroModelCadastro {
   dataPublicacao: Date,
   editora: string,
   edicao: number,
-  autor: string
+  autor: string []
 }

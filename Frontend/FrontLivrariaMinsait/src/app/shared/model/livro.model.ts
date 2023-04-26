@@ -7,5 +7,5 @@ export interface ILivroModel {
   dataPublicacao: string,
   editora: string,
   edicao: number,
-  autor: string
+  autor: string []
 }

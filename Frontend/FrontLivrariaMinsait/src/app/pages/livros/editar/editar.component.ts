@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LivrosService } from 'src/app/service/livros-service.service';
+import { ILivroModelCadastro } from 'src/app/shared/model/livro-cadastro.model';
 import { ILivroModel } from 'src/app/shared/model/livro.model';
 
 @Component({
@@ -21,12 +22,12 @@ export class EditarComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {
       this.formEdit = this.fb.group ({
         titulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        subTitulo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-        resumo: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(500)]],
+        subTitulo: [null, [Validators.minLength(1), Validators.maxLength(100)]],
+        resumo: [null, [Validators.minLength(1), Validators.maxLength(500)]],
         qtdePaginas: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(10000)]],
         dataPublicacao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
         editora: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(150)]],
-        edicao: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+        edicao: [null, [Validators.minLength(1), Validators.maxLength(20)]],
         autor: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(50)]]
       })
    }
@@ -42,6 +43,8 @@ export class EditarComponent implements OnInit {
 
   editarLivro(){
     if (this.formEdit.valid){
+      const livro: ILivroModelCadastro = this.formEdit.value;
+      console.log(livro);
       this.livrosService.editarLivros(Number(this.activatedRoute.snapshot.paramMap.get('id')),
         this.formEdit.value).subscribe(() => {
         this.router.navigate([""]);
